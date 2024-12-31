@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>QR Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      font-family: Poppins;
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      background-color: #002343;
+      color: white;
+    }
+
+    nav {
+      background-color: #00172E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 1rem;
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    nav p {
+      font-family: Poppins;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    nav i {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border-radius: 50%;
+    }
+
+    nav i:hover {
+      align-self: center;
+      justify-self: center;
+      background-color: #FFFFFF26;
+      cursor: pointer;
+    }
+
+    .body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .con {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .con .left,
+    .right {
+      width: 25rem;
+      height: 22rem;
+      background-color: #001733;
+      border-radius: 1rem;
+    }
+
+    .left textarea {
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-family: Poppins;
+      font-size: 1.1rem;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 1rem;
+      background: transparent;
+    }
+
+    .con i {
+      margin: 0 1rem;
+    }
+
+    .right {
+      position: relative;
+      padding: 1rem;
+    }
+
+    .right p {
+      position: absolute;
+      top: 1rem;
+      right: 3rem;
+      padding: 0.3rem;
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border-radius: 0.7rem;
+      cursor: pointer;
+    }
+
+    .right p i {
+      font-size: 0.8rem;
+      margin: 0 0.2rem;
+    }
+
+    .right p:hover {
+      background-color: #FFFFFF26;
+    }
+
+    .right img {
+      width: 85%;
+      border-radius: 1rem;
+      cursor: pointer;
+      padding: 1rem;
+      display: block;
+      margin: 1rem auto;
+    }
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #00172E;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 3rem;
+      padding: 1rem;
+
+    }
+
+    footer .iconCon i {
+      font-size: 1.2rem;
+      color: white;
+      margin: 0 1rem 1rem 0;
+    }
+
+    footer .websiteBox i {
+      font-size: 1.3rem;
+      margin-right: 1rem;
+    }
+
+    footer .websiteBox a {
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: underline;
+    }
+
+    footer span {
+      margin-top: 1rem;
+    }
+    .right p{
+      font-size: 1.4rem;
+      align-self: center;
+      justify-self: center;
+      display: block;
+      margin: 0 auto;
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        width: 100vw;
+      }
+
+      .con {
+        flex-direction: column;
+      }
+
+      .con .left,
+      .con .right {
+        min-width: 18rem;
+      }
+
+      .con i {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <p>QR Generator</p>
+    <i class="fa-solid fa-sun"></i>
+  </nav>
+  <div class="body">
+    <div class="con">
+
+      <div class="left">
+        <textarea placeholder="Enter text to converte.">Enter text to converte into QR code.</textarea>
+      </div>
+      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+      <div class="right">
+        <img>
+        <p>Please, enter text to convert into QR code.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="iconCon">
+      <a href="https://x.com/sauravcoder1?s=09"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/code.with.saurav/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <div class="websiteBox">
+      <i class="fa-solid fa-paper-plane"></i><a href="https://webcoder346.github.io/saurav.me/">saurav.me</a>
+    </div>
+    <span>© 2025 QR Generator</span>
+  </footer>
+  <script>
+    const inp = document.querySelector("textarea");
+    const img = document.querySelector(".right img");
+    const nav = document.querySelector("nav");
+    const body = document.querySelector("body");
+    const right = document.querySelector(".con .right");
+    const left = document.querySelector(".con .left");
+    const footer = document.querySelector("footer");
+    inp.focus();
+
+
+
+    img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inp.value;
+
+    inp.addEventListener("input", () => {
+      const p = document.querySelector(".right p");
+      if (inp.value === "") {
+        img.style.display = "none";
+        p.style.display = "block";
+        console.log("enter text", inp.value)
+      }else{
+        p.style.display = "none";
+        img.style.display = "flex";
+      img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + inp.value;
+        
+      }
+    })
+
+
+    const themBtn = document.querySelector("nav i");
+    let them = "dark";
+
+    themBtn.addEventListener("click", () => {
+      if (them == "light") {
+        themBtn.classList.remove("fa-moon");
+        themBtn.classList.add("fa-sun");
+        nav.style.backgroundColor = "#00172E";
+        body.style.backgroundColor = "#002343";
+        left.style.backgroundColor = "#001733";
+        right.style.backgroundColor = "#001733";
+        footer.style.backgroundColor = "#00172E";
+        inp.style.color = "white";
+        them = "dark";
+      } else {
+        themBtn.classList.remove("fa-sun");
+        themBtn.classList.add("fa-moon");
+        them = "light";
+        nav.style.backgroundColor = "#0055FF";
+        body.style.backgroundColor = "#0071FF";
+        left.style.backgroundColor = "#00AAFF";
+        right.style.backgroundColor = "#00AAFF";
+        footer.style.backgroundColor = "#0055FF";
+        inp.style.color = "black";
+      }
+    })
+  </script>
+</body>
+
+</html>
